@@ -1,30 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Requisitos Funcionales - NetPlus</title>
 </head>
 <body>
-    <h1>Encabezado 1</h1>
-    <h2>Encabezado 2</h2>
-    <h3>Encabezado 3</h3>
-    <h4>Encabezado 4</h4>
-    <h5>Encabezado 5</h5>
-    <h6>Encabezado 6</h6>
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sunt reprehenderit quaerat facere aliquam! Sapiente dolorem dicta, porro nostrum facere eius, aliquam sequi deserunt corporis eaque dolores eveniet. Dolor, ea.</p>
+    <header>
+        <h1>DOCUMENTO DE REQUISITOS FUNCIONALES Y NO FUNCIONALES</h1>
+        <img src="img/images.jpeg" alt="Logo Empresa NetPlus" width="200">
+        <p><strong>Proyecto:</strong> Dashboard de Nómina - Empresa NetPlus</p>
+        <p><strong>Asignatura:</strong> Ingeniería Web / Fundamentos de Ingeniería de Software</p>
+        <p><strong>Docente:</strong> Diana Torres Guarnizo</p>
+        <p><strong>Integrantes:</strong> Lucas Jumbo, Francis Tapia</p>
+    </header>
 
-    <ol>
-        <li>Perro</li>
-        <li>Gato</li>
-        <li>Conejo</li>
-        <li>Hámster</li>
-        <li>Loro</li>
-    </ol>
+    <main>
+        <section>
+            <h2>1. Descripción general del proyecto</h2>
+            
+            <h3>1.1 Problema o necesidad identificada</h3>
+            <p>Actualmente, la empresa NetPlus utiliza el sistema Z-BioTime para el registro biométrico de su personal. El problema radica en que la plataforma solo exporta los datos crudos en formato Excel, obligando al Asistente de Recursos Humanos a realizar diariamente una revisión manual exhaustiva para cruzar marcaciones, calcular atrasos y registrar justificaciones. Esta carga operativa es ineficiente, propensa a errores humanos y retrasa la consolidación mensual necesaria para el pago de la nómina.</p>
+            
+            <h3>1.2 Objetivo de la aplicación web</h3>
+            <p>Desarrollar un sistema web interactivo (Dashboard de Nómina) que automatice la importación, validación y procesamiento de los reportes Excel de Z-BioTime y los reportes de ausencias. El sistema proporcionará un control diario de la puntualidad y generará automáticamente el resumen mensual consolidado, liberando al área de RRHH de tareas repetitivas.</p>
+        </section>
 
-    <h3>Enlaces</h3>
-        <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
-        <a href="Requerimentos.html">Mision</a>
+        <section>
+            <h2>2. Identificación de usuarios</h2>
+            <p>Los usuarios que interactuarán con la aplicación en su primera versión son:</p>
+            <ul>
+                <li><strong>Asistente de RRHH (Operativo):</strong> Responsable de cargar diariamente los reportes Excel de marcaciones y ausencias, revisar el dashboard de puntualidad del día, resolver registros incompletos y generar el resumen del corte mensual para Contabilidad.</li>
+                <li><strong>Jefatura de RRHH / Administrador (Estratégico):</strong> Responsable de visualizar indicadores globales de ausentismo, configurar parámetros del sistema (horarios, tolerancias) y auditar el registro de modificaciones.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Requisitos funcionales</h2>
+            <table border="1">
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>RF01</td>
+                    <td>Carga de marcaciones</td>
+                    <td>El sistema debe permitir al usuario subir el archivo Excel de registros diarios exportado desde Z-BioTime.</td>
+                </tr>
+                <tr>
+                    <td>RF02</td>
+                    <td>Carga de ausencias/permisos</td>
+                    <td>El sistema debe permitir la importación de un segundo reporte/Excel que contenga los colaboradores que se encuentran fuera de la oficina o con permiso aprobado.</td>
+                </tr>
+                <tr>
+                    <td>RF03</td>
+                    <td>Validación de archivos</td>
+                    <td>El sistema debe detectar automáticamente si el Excel subido tiene formatos inválidos, columnas faltantes o datos duplicados antes de procesarlo.</td>
+                </tr>
+                <tr>
+                    <td>RF04</td>
+                    <td>Cálculo de atrasos</td>
+                    <td>El sistema debe comparar la hora de entrada real del colaborador contra su horario asignado y calcular los minutos exactos de atraso.</td>
+                </tr>
+                <tr>
+                    <td>RF05</td>
+                    <td>Identificación de registros incompletos</td>
+                    <td>El sistema debe alertar al Asistente de RRHH sobre marcaciones "huérfanas" (ej. un colaborador que timbró su entrada pero no su salida).</td>
+                </tr>
+                <tr>
+                    <td>RF06</td>
+                    <td>Dashboard diario</td>
+                    <td>El sistema debe presentar de forma gráfica un resumen del día consultado: total de presentes, ausentes, atrasados y colaboradores con permisos.</td>
+                </tr>
+                <tr>
+                    <td>RF07</td>
+                    <td>Historial individual</td>
+                    <td>El sistema debe permitir buscar a un colaborador por su nombre o código y mostrar su registro histórico de puntualidad.</td>
+                </tr>
+                <tr>
+                    <td>RF08</td>
+                    <td>Generación de reporte de nómina</td>
+                    <td>El sistema debe consolidar mensualmente los días laborados, total de minutos de atraso y ausencias injustificadas por cada colaborador.</td>
+                </tr>
+                <tr>
+                    <td>RF09</td>
+                    <td>Exportación de datos</td>
+                    <td>El sistema debe permitir la descarga de los resúmenes diarios y el reporte mensual de nómina en formato PDF y Excel.</td>
+                </tr>
+                <tr>
+                    <td>RF10</td>
+                    <td>Control de acceso (Login)</td>
+                    <td>El sistema debe requerir la autenticación de los usuarios mediante credenciales válidas (correo y contraseña).</td>
+                </tr>
+                <tr>
+                    <td>RF11</td>
+                    <td>Bitácora de auditoría</td>
+                    <td>El sistema debe guardar un registro inmutable de qué usuario subió cada archivo, la fecha, la hora y el resultado de la importación.</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>4. Requisitos no funcionales</h2>
+            <table border="1">
+                <tr>
+                    <th>Código</th>
+                    <th>Categoría</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>RNF01</td>
+                    <td>Seguridad</td>
+                    <td>Las contraseñas de los usuarios deben almacenarse mediante algoritmos de encriptación (hash) y nunca en texto plano.</td>
+                </tr>
+                <tr>
+                    <td>RNF02</td>
+                    <td>Usabilidad / Diseño</td>
+                    <td>La interfaz debe ser intuitiva y construida respetando la identidad visual corporativa de NetPlus, utilizando su paleta de colores: verde, blanco y azul.</td>
+                </tr>
+                <tr>
+                    <td>RNF03</td>
+                    <td>Usabilidad</td>
+                    <td>El flujo principal (cargar un archivo Excel y visualizar el dashboard diario) debe poder completarse en un máximo de 3 clics.</td>
+                </tr>
+                <tr>
+                    <td>RNF04</td>
+                    <td>Compatibilidad</td>
+                    <td>La aplicación web debe ejecutarse correctamente en las versiones más recientes de Chrome, Edge y Firefox sin pérdida de funcionalidades.</td>
+                </tr>
+                <tr>
+                    <td>RNF05</td>
+                    <td>Compatibilidad de archivos</td>
+                    <td>El procesador de datos debe ser capaz de interpretar nativamente los archivos .xlsx de Z-BioTime sin requerir conversiones previas a CSV.</td>
+                </tr>
+                <tr>
+                    <td>RNF06</td>
+                    <td>Rendimiento</td>
+                    <td>El dashboard de indicadores debe renderizar las gráficas y estadísticas en un tiempo menor a 3 segundos.</td>
+                </tr>
+                <tr>
+                    <td>RNF07</td>
+                    <td>Arquitectura</td>
+                    <td>El backend de la aplicación debe estructurarse mediante un servidor Apache, permitiendo la futura conexión estructurada a bases de datos relacionales.</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>5. Alcance inicial del proyecto</h2>
+            
+            <h3>Funcionalidades incluidas en la primera versión:</h3>
+            <ul>
+                <li>Autenticación y roles de usuario.</li>
+                <li>Importación, lectura y limpieza automática de datos desde archivos Excel (.xlsx).</li>
+                <li>Dashboard visual para el seguimiento de la puntualidad y ausentismo.</li>
+                <li>Exportación de reportes consolidados mensuales en formatos estándar.</li>
+            </ul>
+
+            <h3>Fuera del alcance de esta versión:</h3>
+            <ul>
+                <li>Conexión directa a nivel de base de datos o API nativa con el hardware del reloj biométrico Z-BioTime.</li>
+                <li>Cálculos contables/financieros para el rol de pagos (deducciones de ley, impuestos).</li>
+                <li>Portal de autoservicio o aplicación móvil para que los colaboradores envíen sus justificativos médicos.</li>
+            </ul>
+        </section>
+    </main>
+
 </body>
 </html>
