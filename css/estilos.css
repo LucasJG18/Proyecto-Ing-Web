@@ -1,0 +1,286 @@
+/* ===== Variables ===== */
+:root {
+    --brand-blue: #213f9c;
+    --brand-green: #10b981;
+    --brand-white: #ffffff;
+    --hover-green: #18c718;
+
+    --bg-app: #f1f5f9;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border-color: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Header ===== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--brand-blue);
+    height: 70px;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    height: 40px;
+    width: auto;
+}
+
+.brand h1 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--brand-white);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    height: 100%;
+}
+
+header nav a,
+header nav strong {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--brand-white);
+    cursor: pointer;
+}
+
+header nav a {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+header nav a:hover {
+    background-color: var(--hover-green);
+}
+
+header nav strong {
+    position: relative;
+}
+
+header nav strong::after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-green);
+    border-radius: 3px 3px 0 0;
+}
+
+/* ===== Contenido ===== */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3rem;
+}
+
+section {
+    margin-bottom: 3.5rem;
+}
+
+.eyebrow {
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+    margin-bottom: 0.35rem;
+}
+
+main h2 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    font-weight: bold;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+}
+
+.lead {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+main h3 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--brand-blue);
+    margin-bottom: 0.6rem;
+}
+
+main p {
+    margin-bottom: 1rem;
+}
+
+.nota {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* ===== Tarjetas ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+}
+
+.card {
+    background-color: var(--brand-white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+.card ul {
+    padding-left: 1.25rem;
+}
+
+.card li {
+    margin-bottom: 0.6rem;
+}
+
+/* ===== Botones hacia las tablas ===== */
+.titulo-indice {
+    margin-bottom: 0.75rem;
+}
+
+.botones-tablas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.botones-tablas a {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    background-color: var(--brand-blue);
+    color: var(--brand-white);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.botones-tablas a:hover {
+    background-color: var(--hover-green);
+}
+
+/* ===== Tablas ===== */
+.tabla {
+    background-color: var(--brand-white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: var(--brand-blue);
+    color: var(--brand-white);
+    text-align: left;
+    font-weight: bold;
+    padding: 1rem 1.25rem;
+}
+
+td {
+    padding: 1rem 1.25rem;
+    vertical-align: top;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Primera columna resaltada */
+td:first-child {
+    font-weight: bold;
+    color: var(--brand-blue);
+    white-space: nowrap;
+}
+
+/* Filas alternas y resaltado al pasar el mouse */
+tr:nth-child(even) td {
+    background-color: #f6f8fc;
+}
+
+tr:hover td {
+    background-color: #e8eefb;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 0 1rem;
+    }
+
+    .brand h1 {
+        font-size: 1rem;
+    }
+
+    header nav ul {
+        gap: 0.25rem;
+    }
+
+    header nav a,
+    header nav strong {
+        font-size: 0.9rem;
+    }
+
+    header nav a {
+        padding: 0.4rem 0.6rem;
+    }
+
+    main h2 {
+        font-size: 1.7rem;
+    }
+
+    table {
+        min-width: 700px;
+    }
+}
